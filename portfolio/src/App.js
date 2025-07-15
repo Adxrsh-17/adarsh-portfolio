@@ -148,11 +148,17 @@ function App() {
               <p>Email: <a href="mailto:adarsh@example.com">adarsh@example.com</a></p>
               <p>LinkedIn: <a href="https://linkedin.com/in/adarshpradeep" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarshpradeep</a></p>
               <p>GitHub: <a href="https://github.com/adarshpradeep" target="_blank" rel="noopener noreferrer">github.com/adarshpradeep</a></p>
+              <form id="contact-form" className="contact-form">
+                <label htmlFor="message">Send Me a Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+                <button type="submit">Send</button>
+              </form>
+              <p id="form-response" className="form-response"></p>
             </div>
           </section>
 
           <footer className="footer">
-            <p>© 2025 Adarsh Pradeep. Built with Passion.</p>
+            <p>© 2025 Adarsh Pradeep. Built with Precision.</p>
           </footer>
         </div>
       </main>
