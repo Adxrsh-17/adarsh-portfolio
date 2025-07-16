@@ -146,7 +146,8 @@ function App() {
             <div className="card">
               <p>Email: <a href="mailto:ads.vibgyor.17@gmail.com">ads.vibgyor.17@gmail.com</a></p>
               <p>LinkedIn: <a href="https://linkedin.com/in/adarshpradeep17" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarsh_pradeep</a></p>
-              <p>GitHub: <a href="https://github.com/Adxrsh" target="_blank" rel="noopener noreferrer">github.com/Adxrsh</a></p>
+              <p>GitHub: <a href="https://github.com/Adxrsh-17" target="_blank" rel="noopener noreferrer">github.com/Adxrsh-17</a></p>
+
 
               <form id="contact-form" className="contact-form">
                 <label htmlFor="message">Send Me a Message:</label>
