@@ -7,7 +7,6 @@ function App() {
       <nav className="sidebar" role="navigation" aria-label="Main navigation">
         <div className="sidebar-header">
           <h3>Adarsh Pradeep</h3>
-        
         </div>
         <ul className="nav-list">
           <li><a href="#home" className="nav-link active">Home</a></li>
@@ -94,22 +93,22 @@ function App() {
                 <h3>Matrimony App</h3>
                 <p>Flutter, Firebase</p>
                 <p>Real-time chat, image uploads, profile editing.</p>
-                <a href="https://github.com/adarshpradeep/matrimony-app" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Adxrsh/Matrimony-App" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Campus Network Intelligence</h3>
                 <p>WiFi Monitoring Dashboard</p>
-                <a href="https://github.com/adarshpradeep/campus-network" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/MystCryptBust344/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Autonomous Cleaning Robot</h3>
                 <p>Arduino, Obstacle Avoidance</p>
-                <a href="https://github.com/adarshpradeep/cleaning-robot" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/MystCryptBust344/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Metagenomic Analytics</h3>
                 <p>ML for Genome Classification</p>
-                <a href="https://github.com/adarshpradeep/metagenomic-analytics" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/MystCryptBust344/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </section>
@@ -145,10 +144,11 @@ function App() {
           <section className="section" id="contact">
             <h2>Contact</h2>
             <div className="card">
-        <p>Email: <a href="mailto:ads.vibgyor.17@gmail.com">ads.vibgyor.17@gmail.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/adarsh_pradeep" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarsh_pradeep</a></p>
-<p>GitHub: <a href="https://github.com/Adxrsh" target="_blank" rel="noopener noreferrer">github.com/Adxrsh</a></p>
+              <p>Email: <a href="mailto:ads.vibgyor.17@gmail.com">ads.vibgyor.17@gmail.com</a></p>
+              <p>LinkedIn: <a href="https://linkedin.com/in/adarsh_pradeep" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarsh_pradeep</a></p>
+              <p>GitHub: <a href="https://github.com/Adxrsh" target="_blank" rel="noopener noreferrer">github.com/Adxrsh</a></p>
 
+              <form id="contact-form" className="contact-form">
                 <label htmlFor="message">Send Me a Message:</label>
                 <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
                 <button type="submit">Send</button>
@@ -157,6 +157,7 @@ function App() {
             </div>
           </section>
 
+          {/* Footer */}
           <footer className="footer">
             <p>© 2025 Adarsh Pradeep. Built with Precision.</p>
           </footer>
