@@ -7,7 +7,7 @@ function App() {
       <nav className="sidebar" role="navigation" aria-label="Main navigation">
         <div className="sidebar-header">
           <h3>Adarsh Pradeep</h3>
-          <p>AI Engineer</p>
+        
         </div>
         <ul className="nav-list">
           <li><a href="#home" className="nav-link active">Home</a></li>
@@ -145,10 +145,10 @@ function App() {
           <section className="section" id="contact">
             <h2>Contact</h2>
             <div className="card">
-              <p>Email: <a href="mailto:adarsh@example.com">adarsh@example.com</a></p>
-              <p>LinkedIn: <a href="https://linkedin.com/in/adarshpradeep" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarshpradeep</a></p>
-              <p>GitHub: <a href="https://github.com/adarshpradeep" target="_blank" rel="noopener noreferrer">github.com/adarshpradeep</a></p>
-              <form id="contact-form" className="contact-form">
+        <p>Email: <a href="mailto:ads.vibgyor.17@gmail.com">ads.vibgyor.17@gmail.com</a></p>
+<p>LinkedIn: <a href="https://linkedin.com/in/adarsh_pradeep" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarsh_pradeep</a></p>
+<p>GitHub: <a href="https://github.com/Adxrsh" target="_blank" rel="noopener noreferrer">github.com/Adxrsh</a></p>
+
                 <label htmlFor="message">Send Me a Message:</label>
                 <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
                 <button type="submit">Send</button>
