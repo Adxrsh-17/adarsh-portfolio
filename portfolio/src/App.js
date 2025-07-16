@@ -93,22 +93,22 @@ function App() {
                 <h3>Matrimony App</h3>
                 <p>Flutter, Firebase</p>
                 <p>Real-time chat, image uploads, profile editing.</p>
-                <a href="https://github.com/Adxrsh/Matrimony-App" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Adxrsh-17/Matrimony-App" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Campus Network Intelligence</h3>
                 <p>WiFi Monitoring Dashboard</p>
-                <a href="https://github.com/MystCryptBust344/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Adxrsh-17/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Autonomous Cleaning Robot</h3>
                 <p>Arduino, Obstacle Avoidance</p>
-                <a href="https://github.com/MystCryptBust344/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Adxrsh-17/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
               <div className="card">
                 <h3>Metagenomic Analytics</h3>
                 <p>ML for Genome Classification</p>
-                <a href="https://github.com/MystCryptBust344/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/Adxrsh-17/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">GitHub</a>
               </div>
             </div>
           </section>
@@ -145,9 +145,8 @@ function App() {
             <h2>Contact</h2>
             <div className="card">
               <p>Email: <a href="mailto:ads.vibgyor.17@gmail.com">ads.vibgyor.17@gmail.com</a></p>
-              <p>LinkedIn: <a href="https://linkedin.com/in/adarshpradeep17" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarsh_pradeep</a></p>
+              <p>LinkedIn: <a href="https://linkedin.com/in/adarshpradeep17" target="_blank" rel="noopener noreferrer">linkedin.com/in/adarshpradeep17</a></p>
               <p>GitHub: <a href="https://github.com/Adxrsh-17" target="_blank" rel="noopener noreferrer">github.com/Adxrsh-17</a></p>
-
 
               <form id="contact-form" className="contact-form">
                 <label htmlFor="message">Send Me a Message:</label>
