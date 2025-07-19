@@ -67,48 +67,13 @@ const projects = [
   }
 ];
 
-// Floating particles component
-const FloatingParticles = () => {
-  const [particles, setParticles] = useState([]);
+// Floating particles component (removed for simplicity)
 
-  useEffect(() => {
-    const particleCount = 50;
-    const newParticles = [];
-    for (let i = 0; i < particleCount; i++) {
-      newParticles.push({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 4 + 1,
-        delay: Math.random() * 20,
-      });
-    }
-    setParticles(newParticles);
-  }, []);
 
+// Basic Card Component
+function Card({ title, icon: Icon, children }) {
   return (
     <div>
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-            animationDelay: `${particle.delay}s`,
-            animationDuration: `${3 + Math.random() * 4}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
-// Enhanced Card Component without CSS
-function Card({ title, icon: Icon, children, className = "", delay = 0 }) {
-  return (
-    <div style={{ animationDelay: `${delay}ms` }}>
       <div>
         <div>
           <Icon />
@@ -120,7 +85,7 @@ function Card({ title, icon: Icon, children, className = "", delay = 0 }) {
   );
 }
 
-// Enhanced Social Link Button without CSS
+// Basic Social Link Button
 const SocialLinkButton = ({ label, href, icon: Icon }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
     <div>
@@ -130,15 +95,15 @@ const SocialLinkButton = ({ label, href, icon: Icon }) => (
   </a>
 );
 
-// Skill Badge Component without CSS
-const SkillBadge = ({ skill, delay }) => (
-  <div style={{ animationDelay: `${delay}ms` }}>
+// Skill Badge Component
+const SkillBadge = ({ skill }) => (
+  <div>
     {skill}
   </div>
 );
 
-// Project Card Component without CSS
-const ProjectCard = ({ project, index }) => (
+// Project Card Component
+const ProjectCard = ({ project }) => (
   <div>
     <div>
       <div>
@@ -158,18 +123,9 @@ const ProjectCard = ({ project, index }) => (
 );
 
 export default function App() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div>
       <h1>My Portfolio</h1>
-      <FloatingParticles />
       <div>
         {socialLinks.map((link, index) => (
           <SocialLinkButton key={index} {...link} />
@@ -180,7 +136,7 @@ export default function App() {
           <Card key={index} title={category.title} icon={category.icon}>
             <div>
               {category.skills.map((skill, i) => (
-                <SkillBadge key={i} skill={skill} delay={i * 200} />
+                <SkillBadge key={i} skill={skill} />
               ))}
             </div>
           </Card>
@@ -188,7 +144,7 @@ export default function App() {
       </div>
       <div>
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </div>
