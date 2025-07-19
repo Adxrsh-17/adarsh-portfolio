@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Github, Linkedin, Mail, Code, ExternalLink, Brain, Database, Globe } from "lucide-react";
 
-// Enhanced Social Links Data
+// Social Links Data
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/Adxrsh-17", icon: Github },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/adarshpradeep17/", icon: Linkedin },
@@ -67,86 +67,94 @@ const projects = [
   }
 ];
 
-// Floating particles component (removed for simplicity)
-
-
-// Basic Card Component
+// Card Component
 function Card({ title, icon: Icon, children }) {
   return (
-    <div>
-      <div>
-        <div>
-          <Icon />
-        </div>
-        <h2>{title}</h2>
+    <div className="bg-gray-800 rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105">
+      <div className="flex items-center space-x-3 mb-4">
+        <Icon className="w-8 h-8 text-blue-400" />
+        <h2 className="text-2xl font-semibold text-white">{title}</h2>
       </div>
       {children}
     </div>
   );
 }
 
-// Basic Social Link Button
+// Social Link Button
 const SocialLinkButton = ({ label, href, icon: Icon }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
-    <div>
-      <Icon />
-      {label}
-    </div>
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+  >
+    <Icon className="w-5 h-5" />
+    <span>{label}</span>
   </a>
 );
 
 // Skill Badge Component
 const SkillBadge = ({ skill }) => (
-  <div>
+  <div className="inline-block bg-gray-700 text-white px-3 py-1 rounded-full text-sm m-1 hover:bg-gray-600 transition">
     {skill}
   </div>
 );
 
 // Project Card Component
 const ProjectCard = ({ project }) => (
-  <div>
-    <div>
-      <div>
-        <h3>{project.title}</h3>
-        <a href={project.link} target="_blank" rel="noopener noreferrer">
-          <ExternalLink />
-        </a>
-      </div>
-      <p>{project.description}</p>
-      <div>
-        {project.tech.map((tech, i) => (
-          <span key={i}>{tech}</span>
-        ))}
-      </div>
+  <div className="bg-gray-800 rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105">
+    <div className="flex justify-between items-center mb-3">
+      <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+      <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label="View project">
+        <ExternalLink className="w-5 h-5 text-blue-400 hover:text-blue-300" />
+      </a>
+    </div>
+    <p className="text-gray-300 mb-4">{project.description}</p>
+    <div className="flex flex-wrap gap-2">
+      {project.tech.map((tech, i) => (
+        <span
+          key={i}
+          className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
+        >
+          {tech}
+        </span>
+      ))}
     </div>
   </div>
 );
 
+// Main App Component
 export default function App() {
   return (
-    <div>
-      <h1>My Portfolio</h1>
-      <div>
-        {socialLinks.map((link, index) => (
-          <SocialLinkButton key={index} {...link} />
-        ))}
-      </div>
-      <div>
+    <div className="max-w-5xl mx-auto p-6 space-y-12">
+      <header className="text-center">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Adarsh's Portfolio</h1>
+        <div className="flex justify-center gap-4 flex-wrap">
+          {socialLinks.map((link, index) => (
+            <SocialLinkButton key={index} {...link} />
+          ))}
+        </div>
+      </header>
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillCategories.map((category, index) => (
           <Card key={index} title={category.title} icon={category.icon}>
-            <div>
+            <div className="flex flex-wrap gap-2">
               {category.skills.map((skill, i) => (
                 <SkillBadge key={i} skill={skill} />
               ))}
             </div>
           </Card>
         ))}
-      </div>
-      <div>
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
-      </div>
+      </section>
+      <section className="space-y-6">
+        <h2 className="text-3xl font-semibold text-white text-center">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
