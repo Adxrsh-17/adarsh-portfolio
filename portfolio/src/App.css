@@ -21,11 +21,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: 'Roboto', Arial, sans-serif;
   background: linear-gradient(120deg, #eaf3fa 0%, #f4f6f9 100%);
@@ -33,7 +31,50 @@ body {
   line-height: 1.7;
   min-height: 100vh;
 }
-
+/* Welcome Screen Gradient and Card Style */
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #4f8cfb 0%, #235390 60%, #884ea0 100%);
+  animation: fadeOut 1s 4s forwards;
+}
+.welcome-message {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.92) 0%, rgba(142, 68, 173, 0.92) 100%);
+  color: #fff;
+  border-radius: 1.4em;
+  box-shadow: 0 6px 36px 0 rgba(52,82,109,0.20);
+  padding: 2.2em 2.7em;
+  animation: popIn 0.9s cubic-bezier(.68,-0.55,.27,1.55);
+  border: 2px solid rgba(255,255,255,0.17);
+  backdrop-filter: blur(2px);
+}
+.wave {
+  font-size: 2.1em;
+  animation: waveAnim 2s infinite;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
+@keyframes waveAnim {
+  0%,60%,100% { transform: rotate(0); }
+  10%,30% { transform: rotate(-19deg); }
+  20% { transform: rotate(24deg);}
+  40% { transform: rotate(-10deg);}
+  50% { transform: rotate(15deg);}
+}
+@keyframes popIn {
+  0% { transform: scale(0.86) translateY(30px); opacity: 0;}
+  100% { transform: scale(1) translateY(0); opacity: 1;}
+}
+@keyframes fadeOut {
+  0% { opacity: 1; pointer-events: all;}
+  90% { opacity: 0.1; }
+  100% { opacity: 0; pointer-events: none;}
+}
 /* Navbar */
 .navbar {
   position: sticky;
@@ -69,7 +110,6 @@ body {
   background: var(--secondary-color);
   color: #fff;
 }
-
 /* Hero/Header */
 .hero {
   padding: 70px 0 35px 0;
@@ -112,7 +152,6 @@ body {
   color: var(--secondary-color);
   transform: translateY(-2px) scale(1.13);
 }
-
 /* Main Content Sections */
 .main-content {
   max-width: 900px;
@@ -133,7 +172,6 @@ body {
   padding-bottom: 6px;
   letter-spacing: 0.02em;
 }
-
 /* Entry Cards */
 .entry {
   margin-bottom: 20px;
@@ -160,14 +198,12 @@ body {
   display: block;
   margin: 3px 0;
 }
-
 .project-stack, .cert-org {
   color: var(--secondary-color);
   font-weight: 500;
   font-size: 0.98em;
   margin-left: 6px;
 }
-
 .entry a {
   color: var(--secondary-color);
   text-decoration: underline;
@@ -177,7 +213,6 @@ body {
 .entry a:hover {
   color: var(--hover-color);
 }
-
 .entry.small {
   display: inline-block;
   width: 27%;
@@ -186,14 +221,12 @@ body {
   padding: 15px 14px;
   margin-bottom: 11px;
 }
-
 .entry-group {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 24px;
 }
-
 /* Badges and Tags */
 .badge {
   display: inline-block;
@@ -207,7 +240,6 @@ body {
   vertical-align: middle;
   letter-spacing: 0.01em;
 }
-
 .tags {
   list-style: none;
   display: flex;
@@ -225,7 +257,6 @@ body {
   margin-bottom: 5px;
   font-weight: 500;
 }
-
 footer {
   text-align: center;
   margin: 39px auto 0 auto;
@@ -234,7 +265,6 @@ footer {
   letter-spacing: 0.02em;
   padding: 18px 0 0 0;
 }
-
 @media (max-width: 920px) {
   .main-content {
     max-width: 99vw;
@@ -275,44 +305,4 @@ footer {
   .section {
     margin-bottom: 30px;
   }
-}
-.welcome-screen {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(120deg, #eaf3fa 0%, #f4f6f9 100%);
-  animation: fadeOut 1s 4s forwards;
-}
-.welcome-message {
-  text-align: center;
-  background: #fff;
-  border-radius: 1.4em;
-  box-shadow: 0 6px 36px 0 rgba(52,82,109,0.10);
-  padding: 2.2em 2.7em;
-  animation: popIn 0.9s cubic-bezier(.68,-0.55,.27,1.55);
-}
-.wave {
-  font-size: 2.1em;
-  animation: waveAnim 2s infinite;
-  display: inline-block;
-  transform-origin: 70% 70%;
-}
-@keyframes waveAnim {
-  0%,60%,100% { transform: rotate(0); }
-  10%,30% { transform: rotate(-19deg); }
-  20% { transform: rotate(24deg);}
-  40% { transform: rotate(-10deg);}
-  50% { transform: rotate(15deg);}
-}
-@keyframes popIn {
-  0% { transform: scale(0.86) translateY(30px); opacity: 0;}
-  100% { transform: scale(1) translateY(0); opacity: 1;}
-}
-@keyframes fadeOut {
-  0% { opacity: 1; pointer-events: all;}
-  90% { opacity: 0.1; }
-  100% { opacity: 0; pointer-events: none;}
 }
