@@ -1,55 +1,76 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // Social/Profile Links Data
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/Adxrsh-17", icon: "🐙" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/adarshpradeep17/", icon: "🔗" },
   { label: "LeetCode", href: "https://leetcode.com/u/adarsh_coding_17/", icon: "💡" },
-  { label: "Email", href: "mailto:ads.vibgyor.17@gmail.com", icon: "✉️" },
-  { label: "Phone", href: "tel:+918807227858", icon: "📞" },
+  { label: "Email", href: "mailto:ads.vibgyor.17@gmail.com", icon: "✉" },
 ];
 
-// Section Component
+// Reusable Card Component
 function Card({ title, icon, children }) {
   return (
-    <div className="bg-white/90 rounded-xl shadow-md p-6 mb-6">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.5 }}
+      className="bg-white/90 rounded-2xl shadow-xl p-6 mb-6 backdrop-blur"
+    >
       <div className="flex items-center mb-3">
         <span className="text-2xl mr-3">{icon}</span>
-        <h2 className="text-lg font-bold tracking-wider text-indigo-800">{title}</h2>
+        <h2 className="text-lg font-bold tracking-wide text-indigo-800">{title}</h2>
       </div>
       {children}
-    </div>
+    </motion.div>
   );
 }
 
+// Social Link Button
+const SocialLinkButton = ({ label, href, icon }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="inline-flex items-center bg-white/20 hover:bg-white/40 text-white rounded px-3 py-1 font-medium text-base transition-all shadow-sm hover:shadow-md"
+  >
+    <span className="mr-2">{icon}</span>{label}
+  </a>
+);
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex justify-center items-center px-2 py-10">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex justify-center items-center px-4 py-10">
       <div className="w-full max-w-2xl">
-        {/* Main Header */}
-        <div className="mb-10 bg-indigo-600 text-white rounded-lg shadow-lg px-8 py-7 text-center">
+        
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.6 }}
+          className="mb-10 bg-indigo-600 text-white rounded-xl shadow-2xl px-8 py-7 text-center"
+        >
+          <img 
+            src="https://avatars.githubusercontent.com/u/12345678?v=4" 
+            alt="Adarsh Pradeep Avatar"
+            className="mx-auto w-24 h-24 rounded-full border-4 border-white shadow-md mb-4"
+          />
           <h1 className="text-3xl font-extrabold mb-1 tracking-tight">Adarsh Pradeep</h1>
           <div className="text-lg font-light">@Adxrsh-17</div>
-          <div className="flex flex-wrap justify-center gap-4 mt-4">
-            {socialLinks.map(link =>
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-white/20 hover:bg-white/40 text-white rounded px-3 py-1 font-medium text-base transition-all"
-              >
-                <span className="mr-2">{link.icon}</span>{link.label}
-              </a>
-            )}
+          <div className="flex flex-wrap justify-center gap-4 mt-5">
+            {socialLinks.map(link => (
+              <SocialLinkButton key={link.label} {...link} />
+            ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Sections */}
+        {/* Content Cards */}
         <Card icon="📑" title="Professional Summary">
-          <div className="text-gray-800 text-base leading-relaxed">
-            B.Tech in Computer Science & AI (Amrita Vishwa Vidyapeetham). Builder of AI models, robotics, and web apps. Hackathon innovator (NASA Space Apps 2024). Passion for intelligent, real-world solutions.
-          </div>
+          <p className="text-gray-800 leading-relaxed text-base">
+            B.Tech in Computer Science & AI at Amrita Vishwa Vidyapeetham. Passionate about AI, robotics, and full-stack development. NASA Space Apps 2024 hackathon innovator.
+          </p>
         </Card>
 
         <Card icon="🧰" title="Skills">
@@ -64,36 +85,44 @@ export default function App() {
 
         <Card icon="🎓" title="Education">
           <ul className="text-gray-800 space-y-2">
-            <li><b>B.Tech:</b> Amrita Vishwa Vidyapeetham, 2023–27, CGPA: 7.79/10</li>
-            <li><b>12th:</b> Vidhya Niketan, Tamil Nadu, 87%</li>
-            <li><b>10th:</b> Vivekam Senior Secondary, Tamil Nadu, 91%</li>
+            <li><b>B.Tech:</b> Amrita Vishwa Vidyapeetham (2023–27), CGPA: 7.79</li>
+            <li><b>12th:</b> Vidhya Niketan – 87%</li>
+            <li><b>10th:</b> Vivekam Senior Secondary – 91%</li>
           </ul>
         </Card>
 
         <Card icon="📃" title="Certifications">
           <ul className="text-gray-800 list-disc pl-5 space-y-1">
-            <li><b>AI for All</b>, NVIDIA (Mar 2025)</li>
-            <li><b>Supervised Machine Learning</b>, DeepLearning.AI (Feb 2025)</li>
-            <li><b>Foundations: Data Everywhere</b>, Google (Nov 2024)</li>
+            <li><b>AI for All</b> – NVIDIA, Mar 2025</li>
+            <li><b>Supervised ML</b> – DeepLearning.AI, Feb 2025</li>
+            <li><b>Data Everywhere</b> – Google, Nov 2024</li>
           </ul>
         </Card>
 
         <Card icon="🚀" title="Projects">
           <ul className="text-indigo-800 font-medium space-y-2">
             <li>
-              <a href="https://github.com/LitenTechnologies/matrimony-flutter-app" target="_blank" rel="noopener noreferrer">Matrimony App</a>
+              <a href="https://github.com/LitenTechnologies/matrimony-flutter-app" target="_blank" rel="noopener noreferrer">
+                Matrimony App
+              </a>
               <span className="text-gray-600 text-sm"> – Chat, Images, Profiles</span>
             </li>
             <li>
-              <a href="https://github.com/MystCryptBust344/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">Campus Network Intelligence System</a>
+              <a href="https://github.com/MystCryptBust344/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">
+                Campus Network Intelligence System
+              </a>
               <span className="text-gray-600 text-sm"> – WiFi dashboard</span>
             </li>
             <li>
-              <a href="https://github.com/MystCryptBust344/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">Autonomous Cleaning Robot</a>
+              <a href="https://github.com/MystCryptBust344/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">
+                Autonomous Cleaning Robot
+              </a>
               <span className="text-gray-600 text-sm"> – Arduino, path following</span>
             </li>
             <li>
-              <a href="https://github.com/MystCryptBust344/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">Metagenomic Data Analytics</a>
+              <a href="https://github.com/MystCryptBust344/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">
+                Metagenomic Data Analytics
+              </a>
               <span className="text-gray-600 text-sm"> – ML genome classification</span>
             </li>
           </ul>
@@ -101,13 +130,156 @@ export default function App() {
 
         <Card icon="🏆" title="Experience">
           <ul className="text-gray-800 space-y-1">
-            <li><b>NASA Space Apps 2024:</b> Built AI vacuum robot for hackathon</li>
-            <li><b>PSG STEP 2024:</b> 6-week bootcamp, robotics and drones</li>
+            <li><b>NASA Space Apps 2024:</b> AI vacuum robot innovator</li>
+            <li><b>PSG STEP 2024:</b> Bootcamp on robotics & drones</li>
           </ul>
         </Card>
+
+        <footer className="text-center text-gray-500 text-xs mt-12 pb-4">
+          © 2025 Adarsh Pradeep — Open to collaboration & new opportunities.
+        </footer>
+      </div>
+    </div>
+  );
+}import React from "react";
+import { motion } from "framer-motion";
+
+// Social/Profile Links Data
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/Adxrsh-17", icon: "🐙" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/adarshpradeep17/", icon: "🔗" },
+  { label: "LeetCode", href: "https://leetcode.com/u/adarsh_coding_17/", icon: "💡" },
+  { label: "Email", href: "mailto:ads.vibgyor.17@gmail.com", icon: "✉" },
+];
+
+// Reusable Card Component
+function Card({ title, icon, children }) {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.5 }}
+      className="bg-white/90 rounded-2xl shadow-xl p-6 mb-6 backdrop-blur"
+    >
+      <div className="flex items-center mb-3">
+        <span className="text-2xl mr-3">{icon}</span>
+        <h2 className="text-lg font-bold tracking-wide text-indigo-800">{title}</h2>
+      </div>
+      {children}
+    </motion.div>
+  );
+}
+
+// Social Link Button
+const SocialLinkButton = ({ label, href, icon }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="inline-flex items-center bg-white/20 hover:bg-white/40 text-white rounded px-3 py-1 font-medium text-base transition-all shadow-sm hover:shadow-md"
+  >
+    <span className="mr-2">{icon}</span>{label}
+  </a>
+);
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex justify-center items-center px-4 py-10">
+      <div className="w-full max-w-2xl">
         
-        <footer className="text-center text-gray-400 text-xs mt-10">
-          Open to collaborations and new opportunities.
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.6 }}
+          className="mb-10 bg-indigo-600 text-white rounded-xl shadow-2xl px-8 py-7 text-center"
+        >
+          <img 
+            src="https://avatars.githubusercontent.com/u/12345678?v=4" 
+            alt="Adarsh Pradeep Avatar"
+            className="mx-auto w-24 h-24 rounded-full border-4 border-white shadow-md mb-4"
+          />
+          <h1 className="text-3xl font-extrabold mb-1 tracking-tight">Adarsh Pradeep</h1>
+          <div className="text-lg font-light">@Adxrsh-17</div>
+          <div className="flex flex-wrap justify-center gap-4 mt-5">
+            {socialLinks.map(link => (
+              <SocialLinkButton key={link.label} {...link} />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Content Cards */}
+        <Card icon="📑" title="Professional Summary">
+          <p className="text-gray-800 leading-relaxed text-base">
+            B.Tech in Computer Science & AI at Amrita Vishwa Vidyapeetham. Passionate about AI, robotics, and full-stack development. NASA Space Apps 2024 hackathon innovator.
+          </p>
+        </Card>
+
+        <Card icon="🧰" title="Skills">
+          <ul className="grid grid-cols-2 gap-2 text-gray-700 text-sm">
+            <li><b>Languages:</b> Python, C++, Java, C, Dart</li>
+            <li><b>Web & Mobile:</b> HTML, CSS, JS, Flutter, REST</li>
+            <li><b>Databases:</b> MongoDB, Firebase</li>
+            <li><b>Data:</b> Power BI</li>
+            <li className="col-span-2"><b>Tools:</b> Git, GitHub, OpenCV, Regex, VS Code, MS Office</li>
+          </ul>
+        </Card>
+
+        <Card icon="🎓" title="Education">
+          <ul className="text-gray-800 space-y-2">
+            <li><b>B.Tech:</b> Amrita Vishwa Vidyapeetham (2023–27), CGPA: 7.79</li>
+            <li><b>12th:</b> Vidhya Niketan – 87%</li>
+            <li><b>10th:</b> Vivekam Senior Secondary – 91%</li>
+          </ul>
+        </Card>
+
+        <Card icon="📃" title="Certifications">
+          <ul className="text-gray-800 list-disc pl-5 space-y-1">
+            <li><b>AI for All</b> – NVIDIA, Mar 2025</li>
+            <li><b>Supervised ML</b> – DeepLearning.AI, Feb 2025</li>
+            <li><b>Data Everywhere</b> – Google, Nov 2024</li>
+          </ul>
+        </Card>
+
+        <Card icon="🚀" title="Projects">
+          <ul className="text-indigo-800 font-medium space-y-2">
+            <li>
+              <a href="https://github.com/LitenTechnologies/matrimony-flutter-app" target="_blank" rel="noopener noreferrer">
+                Matrimony App
+              </a>
+              <span className="text-gray-600 text-sm"> – Chat, Images, Profiles</span>
+            </li>
+            <li>
+              <a href="https://github.com/MystCryptBust344/Campus-Network-Intelligence-System-involving-wireless-network-WiFi" target="_blank" rel="noopener noreferrer">
+                Campus Network Intelligence System
+              </a>
+              <span className="text-gray-600 text-sm"> – WiFi dashboard</span>
+            </li>
+            <li>
+              <a href="https://github.com/MystCryptBust344/Arduino-Based-Implementation-of-an-Autonomous-Cleaning-Robot" target="_blank" rel="noopener noreferrer">
+                Autonomous Cleaning Robot
+              </a>
+              <span className="text-gray-600 text-sm"> – Arduino, path following</span>
+            </li>
+            <li>
+              <a href="https://github.com/MystCryptBust344/Metagenomic-Data-Analytics" target="_blank" rel="noopener noreferrer">
+                Metagenomic Data Analytics
+              </a>
+              <span className="text-gray-600 text-sm"> – ML genome classification</span>
+            </li>
+          </ul>
+        </Card>
+
+        <Card icon="🏆" title="Experience">
+          <ul className="text-gray-800 space-y-1">
+            <li><b>NASA Space Apps 2024:</b> AI vacuum robot innovator</li>
+            <li><b>PSG STEP 2024:</b> Bootcamp on robotics & drones</li>
+          </ul>
+        </Card>
+
+        <footer className="text-center text-gray-500 text-xs mt-12 pb-4">
+          © 2025 Adarsh Pradeep — Open to collaboration & new opportunities.
         </footer>
       </div>
     </div>
