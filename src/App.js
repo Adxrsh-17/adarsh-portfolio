@@ -2136,32 +2136,38 @@ function Footer() {
             gap: '30px',
             alignItems: 'center'
           }}>
-            <a
-              href="javascript:void(0)"
+            <button
               style={{
                 fontSize: '12px',
                 color: '#666',
                 textDecoration: 'none',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
                 transition: 'color 0.3s ease'
               }}
               onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
               onMouseLeave={(e) => e.target.style.color = '#666'}
+              onClick={(e) => { e.preventDefault(); handlePrivacyPolicyClick(); }}  // Prevent default if needed
             >
               Privacy Policy
-            </a>
-            <a
-              href="javascript:void(0)"
-              style={{
-                fontSize: '12px',
-                color: '#666',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
-              onMouseLeave={(e) => e.target.style.color = '#666'}
-            >
-              Terms of Service
-            </a>
+            </button>
+            <button
+                style={{
+                  fontSize: '12px',
+                  color: '#666',
+                  textDecoration: 'none',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'color 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
+                onMouseLeave={(e) => e.target.style.color = '#666'}
+                onClick={(e) => { e.preventDefault(); handlePrivacyPolicyClick(); }}  // Prevent default if needed
+              >
+                Terms Of Service
+              </button>
             <div style={{
               fontSize: '11px',
               color: '#555',
