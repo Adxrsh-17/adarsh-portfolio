@@ -2140,54 +2140,72 @@ function Footer() {
             gap: '30px',
             alignItems: 'center'
           }}>
-            <button
+          import React from 'react';
+
+const App = () => {
+  const handlePrivacyPolicyClick = () => {
+    console.log("Privacy Policy Clicked");
+    // Add logic for navigating or opening modal, etc.
+  };
+
+  const handleTermsOfServiceClick = () => {
+    console.log("Terms of Service Clicked");
+    // Add logic for navigating or opening modal, etc.
+  };
+
+  return (
+    <footer>
+      <div>
+        <div>
+          <div>
+            {/* Convert buttons to text links */}
+            <span
               style={{
                 fontSize: '12px',
                 color: '#666',
-                textDecoration: 'none',
-                background: 'none',
-                border: 'none',
+                textDecoration: 'underline',
                 cursor: 'pointer',
                 transition: 'color 0.3s ease'
               }}
               onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
               onMouseLeave={(e) => e.target.style.color = '#666'}
-              onClick={(e) => { e.preventDefault(); handlePrivacyPolicyClick(); }}  // Prevent default if needed
+              onClick={handlePrivacyPolicyClick}  // Handle Privacy Policy click
             >
               Privacy Policy
-            </button>
-            <button
-                style={{
-                  fontSize: '12px',
-                  color: '#666',
-                  textDecoration: 'none',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'color 0.3s ease'
-                }}
-                onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
-                onMouseLeave={(e) => e.target.style.color = '#666'}
-                onClick={(e) => { e.preventDefault(); handlePrivacyPolicyClick(); }}  // Prevent default if needed
-              >
-                Terms Of Service
-              </button>
-            <div style={{
-              fontSize: '11px',
-              color: '#555',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}>
-              Built with 
-              <span style={{ color: '#58a6ff' }}>React</span> & 
-              <span style={{ color: '#7dd8ff' }}>GSAP</span>
-            </div>
+            </span>
+            <span
+              style={{
+                fontSize: '12px',
+                color: '#666',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                transition: 'color 0.3s ease',
+                marginLeft: '10px'
+              }}
+              onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
+              onMouseLeave={(e) => e.target.style.color = '#666'}
+              onClick={handleTermsOfServiceClick}  // Handle Terms of Service click
+            >
+              Terms Of Service
+            </span>
+          </div>
+
+          {/* Footer text */}
+          <div style={{
+            fontSize: '11px',
+            color: '#555',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px'
+          }}>
+            Built with 
+            <span style={{ color: '#58a6ff' }}>React</span> & 
+            <span style={{ color: '#7dd8ff' }}>GSAP</span>
           </div>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default App;
