@@ -2137,7 +2137,7 @@ function Footer() {
             alignItems: 'center'
           }}>
             <a
-              href=""javascript:void(0)""
+              href="javascript:void(0)"
               style={{
                 fontSize: '12px',
                 color: '#666',
@@ -2150,7 +2150,7 @@ function Footer() {
               Privacy Policy
             </a>
             <a
-              href=""javascript:void(0)""
+              href="javascript:void(0)"
               style={{
                 fontSize: '12px',
                 color: '#666',
