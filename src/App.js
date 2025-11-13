@@ -12,6 +12,10 @@ function App() {
   useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
+    const handlePrivacyPolicyClick = () => {
+      console.log("Privacy Policy Clicked");
+      // You can add any logic you want here, like navigating to the privacy policy page or showing a modal, etc.
+    };
     
     const moveCursor = (e) => {
       if (cursor && cursorDot) {
