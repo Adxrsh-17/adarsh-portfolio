@@ -12,10 +12,6 @@ function App() {
   useEffect(() => {
     const cursor = cursorRef.current;
     const cursorDot = cursorDotRef.current;
-    const handlePrivacyPolicyClick = () => {
-      console.log("Privacy Policy Clicked");
-      // You can add any logic you want here, like navigating to the privacy policy page or showing a modal, etc.
-    };
     
     const moveCursor = (e) => {
       if (cursor && cursorDot) {
@@ -208,19 +204,24 @@ function Navigation({ activeSection }) {
       borderBottom: '1px solid rgba(88, 166, 255, 0.1)',
       overflowX: 'auto'
     }}>
-      <div style={{
-        fontSize: '18px',
-        fontWeight: 700,
-        letterSpacing: '2px',
-        cursor: 'pointer',
-        whiteSpace: 'nowrap',
-        background: 'linear-gradient(135deg, #58a6ff 0%, #7dd8ff 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text'
-      }} onClick={() => scrollTo('home')}>
+      <button
+        onClick={() => scrollTo('home')}
+        style={{
+          fontSize: '18px',
+          fontWeight: 700,
+          letterSpacing: '2px',
+          cursor: 'pointer',
+          whiteSpace: 'nowrap',
+          background: 'linear-gradient(135deg, #58a6ff 0%, #7dd8ff 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          border: 'none',
+          padding: 0
+        }}
+      >
         ADARSH
-      </div>
+      </button>
       
       <div style={{ display: 'flex', gap: '50px', alignItems: 'center', overflowX: 'auto' }}>
         {navItems.map(item => (
@@ -1041,7 +1042,6 @@ function CertificationsSection() {
     setIsLoaded(true);
     
     const ctx = gsap.context(() => {
-      // Animate section title
       if (titleRef.current) {
         gsap.from(titleRef.current, {
           scrollTrigger: {
@@ -1060,7 +1060,6 @@ function CertificationsSection() {
       if (certsRef.current) {
         const cards = certsRef.current.querySelectorAll('.cert-card');
         if (cards.length > 0) {
-          // Staggered entrance animation with 3D rotation
           gsap.from(cards, {
             scrollTrigger: {
               trigger: certsRef.current,
@@ -1080,7 +1079,6 @@ function CertificationsSection() {
             ease: 'back.out(1.4)'
           });
 
-          // Continuous floating animation
           cards.forEach((card, index) => {
             gsap.to(card, {
               y: index % 2 === 0 ? -10 : 10,
@@ -1105,7 +1103,6 @@ function CertificationsSection() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Animated background particles */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -1146,7 +1143,7 @@ function CertificationsSection() {
           perspective: '1000px'
         }}>
           {isLoaded && certifications.map((cert, i) => (
-            <EnhancedCertificationCard key={i} cert={cert} index={i} />
+            <CertificationCard key={i} cert={cert} index={i} />
           ))}
         </div>
       </div>
@@ -1161,13 +1158,12 @@ function CertificationsSection() {
   );
 }
 
-function EnhancedCertificationCard({ cert, index }) {
+function CertificationCard({ cert, index }) {
   const cardRef = useRef(null);
   const iconRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    // Icon pulse animation
     if (iconRef.current) {
       gsap.to(iconRef.current, {
         scale: 1.2,
@@ -1233,7 +1229,6 @@ function EnhancedCertificationCard({ cert, index }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Animated shine effect */}
       <div style={{
         position: 'absolute',
         top: '-50%',
@@ -1246,7 +1241,6 @@ function EnhancedCertificationCard({ cert, index }) {
         pointerEvents: 'none'
       }} />
 
-      {/* Content */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div ref={iconRef} style={{
           fontSize: '48px',
@@ -1306,7 +1300,6 @@ function EnhancedCertificationCard({ cert, index }) {
         </div>
       </div>
 
-      {/* Corner accent */}
       <div style={{
         position: 'absolute',
         top: 0,
@@ -1377,7 +1370,7 @@ function EventsSection() {
           marginTop: '80px'
         }}>
           {isLoaded && events.map((event, i) => (
-            <EventCard key={i} event={event} index={i} />
+            <EventCard key={i} event={event} />
           ))}
         </div>
       </div>
@@ -1385,7 +1378,7 @@ function EventsSection() {
   );
 }
 
-function EventCard({ event, index }) {
+function EventCard({ event }) {
   const cardRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -1548,7 +1541,7 @@ function HackathonsSection() {
           marginTop: '80px'
         }}>
           {isLoaded && hackathons.map((hackathon, i) => (
-            <HackathonCard key={i} hackathon={hackathon} index={i} />
+            <HackathonCard key={i} hackathon={hackathon} />
           ))}
         </div>
       </div>
@@ -1556,7 +1549,7 @@ function HackathonsSection() {
   );
 }
 
-function HackathonCard({ hackathon, index }) {
+function HackathonCard({ hackathon }) {
   const cardRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -1947,6 +1940,16 @@ function ContactItem({ contact }) {
 }
 
 function Footer() {
+  const handlePrivacyPolicyClick = () => {
+    console.log("Privacy Policy Clicked");
+    // Add your navigation logic here
+  };
+
+  const handleTermsOfServiceClick = () => {
+    console.log("Terms of Service Clicked");
+    // Add your navigation logic here
+  };
+
   const footerLinks = {
     explore: [
       { label: 'About', href: '#home' },
@@ -2138,74 +2141,63 @@ function Footer() {
           <div style={{
             display: 'flex',
             gap: '30px',
-            alignItems: 'center'
+            alignItems: 'center',
+            flexWrap: 'wrap'
           }}>
-          import React from 'react';
-
-const App = () => {
-  const handlePrivacyPolicyClick = () => {
-    console.log("Privacy Policy Clicked");
-    // Add logic for navigating or opening modal, etc.
-  };
-
-  const handleTermsOfServiceClick = () => {
-    console.log("Terms of Service Clicked");
-    // Add logic for navigating or opening modal, etc.
-  };
-
-  return (
-    <footer>
-      <div>
-        <div>
-          <div>
-            {/* Convert buttons to text links */}
-            <span
+            <button
+              type="button"
               style={{
                 fontSize: '12px',
                 color: '#666',
+                background: 'none',
+                border: 'none',
                 textDecoration: 'underline',
                 cursor: 'pointer',
+                padding: 0,
                 transition: 'color 0.3s ease'
               }}
               onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
               onMouseLeave={(e) => e.target.style.color = '#666'}
-              onClick={handlePrivacyPolicyClick}  // Handle Privacy Policy click
+              onClick={handlePrivacyPolicyClick}
             >
               Privacy Policy
-            </span>
-            <span
+            </button>
+            
+            <button
+              type="button"
               style={{
                 fontSize: '12px',
                 color: '#666',
+                background: 'none',
+                border: 'none',
                 textDecoration: 'underline',
                 cursor: 'pointer',
-                transition: 'color 0.3s ease',
-                marginLeft: '10px'
+                padding: 0,
+                transition: 'color 0.3s ease'
               }}
               onMouseEnter={(e) => e.target.style.color = '#58a6ff'}
               onMouseLeave={(e) => e.target.style.color = '#666'}
-              onClick={handleTermsOfServiceClick}  // Handle Terms of Service click
+              onClick={handleTermsOfServiceClick}
             >
-              Terms Of Service
-            </span>
-          </div>
-
-          {/* Footer text */}
-          <div style={{
-            fontSize: '11px',
-            color: '#555',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
-          }}>
-            Built with 
-            <span style={{ color: '#58a6ff' }}>React</span> & 
-            <span style={{ color: '#7dd8ff' }}>GSAP</span>
+              Terms of Service
+            </button>
+            
+            <div style={{
+              fontSize: '11px',
+              color: '#555',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px'
+            }}>
+              Built with 
+              <span style={{ color: '#58a6ff' }}>React</span> & 
+              <span style={{ color: '#7dd8ff' }}>GSAP</span>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   );
-};
+}
 
 export default App;
