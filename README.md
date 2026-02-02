@@ -87,13 +87,7 @@ This project is licensed under the [MIT License](LICENSE). You’re free to use,
 
 ---
 
-## ✉️ Contact
 
-Have questions or want to connect?
-
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **Twitter:** [@yourhandle](https://twitter.com/yourhandle)
 
 ---
 
