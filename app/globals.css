@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ─── DESIGN TOKENS ──────────────────────────────────────── */
+:root {
+  --primary-pink: #C2185B;
+  --dark-pink: #AD1457;
+  --light-pink: #F8BBD0;
+
+  --background: #f8f5f7;
+  --foreground: #1a1a2e;
+  --bg-card: #ffffff;
+  --border-color: rgba(194, 24, 91, 0.18);
+  --text-secondary: #6b6b80;
+
+  --nav-bg: rgba(248, 245, 247, 0.78);
+  --nav-border: rgba(194, 24, 91, 0.12);
+  --nav-shadow: rgba(194, 24, 91, 0.08);
+  --nav-pill-bg: rgba(194, 24, 91, 0.06);
+  --nav-pill-border: rgba(194, 24, 91, 0.15);
+  --nav-link-hover: rgba(194, 24, 91, 0.1);
+  --nav-toggle-bg: rgba(194, 24, 91, 0.06);
+
+  --cursor-color: #C2185B;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-pink: var(--primary-pink);
+  --color-dark-pink: var(--dark-pink);
+  --color-light-pink: var(--light-pink);
+  --color-card: var(--bg-card);
+  --color-border: var(--border-color);
+  --color-secondary: var(--text-secondary);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: #0c0c14;
+  --foreground: #eeeef5;
+  --bg-card: #13131f;
+  --border-color: rgba(194, 24, 91, 0.22);
+  --text-secondary: #9090a8;
+
+  --nav-bg: rgba(12, 12, 20, 0.82);
+  --nav-border: rgba(194, 24, 91, 0.18);
+  --nav-shadow: rgba(194, 24, 91, 0.14);
+  --nav-pill-bg: rgba(255, 255, 255, 0.04);
+  --nav-pill-border: rgba(255, 255, 255, 0.08);
+  --nav-link-hover: rgba(194, 24, 91, 0.15);
+  --nav-toggle-bg: rgba(194, 24, 91, 0.08);
+}
+
+/* ─── BASE ───────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+
+
+/* ─── KEYFRAMES ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(44px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blobPulse {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  33% {
+    transform: scale(1.08) translate(18px, -14px);
+  }
+
+  66% {
+    transform: scale(0.94) translate(-14px, 10px);
+  }
+}
+
+@keyframes floatY {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── HERO INLINE ENTRY ANIMATIONS ──────────────────────── */
+.hero-a1 {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.hero-a2 {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both;
+}
+
+.hero-a3 {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.30s both;
+}
+
+.hero-a4 {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+}
+
+.hero-a5 {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.54s both;
+}
+
+.hero-label {
+  background: linear-gradient(90deg, var(--primary-pink), #e91e8c, var(--primary-pink));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* ─── BACKGROUND GRID ──────────────────────────────────────── */
+.bg-grid {
+  background-size: 44px 44px;
+  background-image:
+    linear-gradient(to right, var(--nav-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nav-border) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 80%);
+  opacity: 0.8;
+}
+
+/* ─── FLOAT (education icon) ─────────────────────────────── */
+.float-icon {
+  animation: floatY 4.5s ease-in-out infinite;
+}
+
+/* ─── ROTATING RING (hero deco) ─────────────────────────── */
+.spin-ring {
+  animation: rotateSlow 22s linear infinite;
+}
+
+.spin-ring2 {
+  animation: rotateSlow 30s linear infinite reverse;
+}
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── GLASS CARD ─────────────────────────────────────────── */
+.glass-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.dark .glass-card {
+  background: linear-gradient(155deg, rgba(194, 24, 91, 0.055) 0%, var(--bg-card) 55%);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.glass-card:hover {
+  border-color: rgba(194, 24, 91, 0.48);
+  box-shadow: 0 14px 44px rgba(194, 24, 91, 0.14), 0 1px 0 rgba(194, 24, 91, 0.07) inset;
+}
+
+/* ─── CACHE BUSTING FORCE CURSOR ─────────────────────────── */
+html * {
+  cursor: auto !important;
+}
+a, a *, button, button *, [role="button"] {
+  cursor: pointer !important;
+}
+input, textarea {
+  cursor: text !important;
+}
