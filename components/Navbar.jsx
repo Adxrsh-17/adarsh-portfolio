@@ -119,10 +119,10 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               <div className={`absolute top-full right-0 mt-3 w-44 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-300 origin-top-right ${resumeDropdown ? 'scale-100 opacity-100 visible' : 'scale-95 opacity-0 invisible'}`}>
-                 <a href="/ADARSH_PRADEEP_RESUME.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-4 py-3.5 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--primary-pink)]/10 hover:text-[var(--primary-pink)] transition-colors border-b border-[var(--border-color)]">
+                 <a href="/Adarsh-Resume.pdf" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-4 py-3.5 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--primary-pink)]/10 hover:text-[var(--primary-pink)] transition-colors border-b border-[var(--border-color)]">
                     <i className="fas fa-eye text-[var(--primary-pink)]"></i> View Resume
                  </a>
-                 <a href="/ADARSH_PRADEEP_RESUME.pdf" download="Adarsh_Pradeep_Resume.pdf" className="flex items-center gap-3 px-4 py-3.5 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--primary-pink)]/10 hover:text-[var(--primary-pink)] transition-colors">
+                 <a href="/Adarsh-Resume.pdf" download="Adarsh-Resume.pdf" className="flex items-center gap-3 px-4 py-3.5 text-sm font-bold text-[var(--foreground)] hover:bg-[var(--primary-pink)]/10 hover:text-[var(--primary-pink)] transition-colors">
                     <i className="fas fa-download text-[var(--primary-pink)]"></i> Download PDF
                  </a>
               </div>
@@ -206,10 +206,10 @@ export default function Navbar() {
             
             {/* Mobile Resume Options */}
             <div className="col-span-2 mt-4 space-y-3 relative before:content-[''] before:absolute before:-top-3 before:left-4 before:right-4 before:h-px before:bg-gradient-to-r before:from-transparent before:via-[var(--border-color)] before:to-transparent">
-              <a href="/ADARSH_PRADEEP_RESUME.pdf" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 capitalize text-sm font-bold text-center p-4 rounded-xl bg-gradient-to-r from-[var(--primary-pink)] to-[var(--dark-pink)] text-white shadow-lg active:scale-95 transition-all">
+              <a href="/Adarsh-Resume.pdf" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 capitalize text-sm font-bold text-center p-4 rounded-xl bg-gradient-to-r from-[var(--primary-pink)] to-[var(--dark-pink)] text-white shadow-lg active:scale-95 transition-all">
                  <i className="fas fa-eye text-lg"></i> View Resume
               </a>
-              <a href="/ADARSH_PRADEEP_RESUME.pdf" download="Adarsh_Pradeep_Resume.pdf" className="flex items-center justify-center gap-3 capitalize text-sm font-bold text-center p-4 rounded-xl bg-[var(--background)] border-2 border-[var(--primary-pink)] text-[var(--primary-pink)] shadow-sm active:scale-95 transition-all hover:bg-[var(--primary-pink)] hover:text-white">
+              <a href="/Adarsh-Resume.pdf" download="Adarsh-Resume.pdf" className="flex items-center justify-center gap-3 capitalize text-sm font-bold text-center p-4 rounded-xl bg-[var(--background)] border-2 border-[var(--primary-pink)] text-[var(--primary-pink)] shadow-sm active:scale-95 transition-all hover:bg-[var(--primary-pink)] hover:text-white">
                  <i className="fas fa-download text-lg"></i> Download PDF
               </a>
             </div>

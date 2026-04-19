@@ -1,4 +1,4 @@
-import portfolioData from "../portfolio-data.json";
+import portfolioData from "../data/portfolio.json";
 import Navbar from "../components/Navbar";
 
 // Each entry is { cls: "icon class(es)", colored: true|false }
