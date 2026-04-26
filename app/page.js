@@ -61,8 +61,7 @@ const CAT_COLORS = {
 };
 
 export default function Home() {
-  const { personal, experience, projects, skills, education, hackathons, certifications } = portfolioData;
-
+const { personal, experience, projects, skills, education, hackathons, publications, certifications } = portfolioData;
   return (
     <main className="min-h-screen relative overflow-x-hidden">
       {/* ── Background grid ────────────────────────── */}
@@ -261,7 +260,35 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      {/* ─── PUBLICATIONS ─────────────────────────────────────────── */}
+        <section id="publications" className="py-24 px-6 max-w-6xl mx-auto">
+          <div className="reveal text-center mb-16">
+            <p className="text-[var(--primary-pink)] text-xs font-bold tracking-widest uppercase mb-2">Publications</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Research & Publications</h2>
+          </div>
+        
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {(publications || []).map((p, idx) => (
+              <div
+                key={idx}
+                className="reveal glass-card rounded-2xl p-8 flex gap-6 items-start group hover:-translate-y-1 transition-all duration-300"
+                style={{ transitionDelay: `${idx * 0.12}s` }}
+              >
+                <div className="shrink-0 w-14 h-14 rounded-xl bg-[var(--background)] flex items-center justify-center">
+                  <i className="fas fa-book-open text-2xl text-[var(--primary-pink)]"></i>
+                </div>
+        
+                <div className="min-w-0">
+                  <h3 className="text-lg font-bold mb-1 leading-snug">{p.title}</h3>
+                  <p className="text-sm font-semibold text-[var(--primary-pink)]">{p.venue}</p>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                    {p.institution}{p.dateRange ? ` • ${p.dateRange}` : ""}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       {/* ─── CERTIFICATIONS ───────────────────────────────────────── */}
       <section id="certifications" className="py-24 px-6 max-w-6xl mx-auto">
         <div className="reveal text-center mb-16">
