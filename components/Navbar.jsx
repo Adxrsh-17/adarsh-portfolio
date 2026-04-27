@@ -2,7 +2,7 @@
 import { useTheme } from './ThemeProvider';
 import { useState, useEffect } from 'react';
 
-const NAV_LINKS = ['home', 'experience', 'projects', 'skills', 'education', 'hackathons', 'certifications'];
+const NAV_LINKS = ['home', 'experience', 'projects', 'skills', 'education', 'hackathons', 'publications', 'certifications'];
 
 export default function Navbar() {
   const { theme, toggle } = useTheme();
