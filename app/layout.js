@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import GlobalEffects from "../components/GlobalEffects";
 import ParticlesBackground from "../components/ParticlesBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           <GlobalEffects />
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
